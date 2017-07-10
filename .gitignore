@@ -1,0 +1,13 @@
+.DS_Store
+
+build
+dist
+*.egg-info
+*.pyc
+
+*.swo
+*.swp
+env
+etc
+.tox
+tmp
