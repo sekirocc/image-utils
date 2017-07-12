@@ -1,7 +1,6 @@
 import time
 import rbd
 import rados
-# import hashlib
 import math
 from six.moves import urllib
 import six
@@ -9,8 +8,8 @@ import progressbar
 
 from oslo_utils import units
 
-from plato_migrate import errors
-from plato_migrate.logger import logger
+from image_utils import errors
+from image_utils.logger import logger
 
 
 DEFAULT_CHUNK_SIZE = 32  # MB
