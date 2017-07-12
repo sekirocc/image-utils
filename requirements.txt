@@ -1,4 +1,5 @@
 pbr
 six
+python-cephlibs
 oslo.utils
 progressbar>=2.3.0
