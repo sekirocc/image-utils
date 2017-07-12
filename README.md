@@ -1,44 +1,48 @@
-Utils to manipulate ceph rbd image.
+Utils to manipulate ceph ceph image.
 
 currently there are two seperate modules. they have no relations.
 
-### rbd.py
+### Install
+
+```
+pip install image-utils
+```
+
+### Usage
+
+currently there are two modules.
+
+#### ceph.py
 
 this module is used to interact with ceph image.
 
-this module wrap ceph cluster into `Store`, wrap rbd image location into `RbdLocation`,
-proxy rbd image in `RbdImageProxy`, read write rbd image through `ImageIterator`
-
-some code may looks familiar to GlanceStore project from openstack.
-
-#### Example: copy a image from source ceph cluster to dest ceph.
+##### Example: copy a image from source ceph cluster to dest ceph.
 
 ```
-from rbd_utils import rbd
+from ceph_utils import ceph
 
-# get a store.
-src_store = rbd.get_store(conffile_path, rbd_user, keyring_path)
+# get source store.
+src_store = ceph.get_store(conffile_path, ceph_user, keyring_path)
 
-# get another store.
-dst_store = rbd.get_store(conffile_path2, rbd_user, keyring_path2)
+# get dest store.
+dst_store = ceph.get_store(conffile_path2, ceph_user, keyring_path2)
 
-# get a image location from source ceph pool.
+# get an image location from source ceph pool.
 src_loc = src_store.get_location(pool, image_name)
 
 # copy image from src_store to dst_store, in dst_pool
-rbd.copy(src_store, src_loc, dst_store, dst_pool)
+ceph.copy(src_store, src_loc, dst_store, dst_pool)
 
 ```
 
-
-### fish.py
+#### fish.py
 
 this module is used to modify disk image.
 
-#### Example: modify a image.
+##### Example: modify a image.
 
 ```
-from rbd_utils.fish import Fish
+from ceph_utils.fish import Fish
 
 f = Fish(mon_host, mon_port, client, key, pool, image_name)
 f.launch()

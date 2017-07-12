@@ -11,3 +11,7 @@ env
 etc
 .tox
 tmp
+
+AUTHORS
+ChangeLog
+.eggs
