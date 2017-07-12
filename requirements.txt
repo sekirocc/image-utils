@@ -1,3 +1,4 @@
+pbr
 six
 oslo.utils
 progressbar>=2.3.0
